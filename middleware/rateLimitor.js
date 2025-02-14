@@ -14,15 +14,6 @@ const keyGenerator = (req) => {
   return req.ip + req.headers["user-agent"];
 };
 
-// Rate limiter for registration
-const registrationLimiter = rateLimit({
-  windowMs: 5 * 60 * 1000, // 5 minutes
-  max: 5, // Allow 5 registration attempts per key (user ID or IP) in 5 minutes
-  message: "Too many registration attempts, please try again in 5 minutes.",
-  keyGenerator, 
-  handler: handleRateLimitError, 
-});
-
 // Rate limiter for login
 const loginLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes
