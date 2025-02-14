@@ -24,4 +24,4 @@ const loginLimiter = rateLimit({
 });
 
 
-module.exports = { registrationLimiter, loginLimiter };
+module.exports = { loginLimiter };
